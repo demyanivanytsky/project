@@ -1,3 +1,4 @@
+
 const numberOfFilms = +prompt("Скільки фільмів ви подивились?", "");
 
 const personalMovieDB = {
@@ -8,12 +9,21 @@ const personalMovieDB = {
     privat: false
 };
 
- const  lastFilm1 = prompt("Останній переглянутий фільм?", ""),
-        markFilm1 = prompt("На скільки оціните фільм?", ""),
-        lastFilm2 = prompt("Останній переглянутий фільм?", ""),
-        markFilm2 = prompt("На скільки оціните фільм?", "");
 
-personalMovieDB.movies[lastFilm1] = markFilm1;
-personalMovieDB.movies[lastFilm2] = markFilm2;
+for (let i = 0; i < 2; i++) { 
+    const lastFilm = prompt("Останній переглянутий фільм?", ""),
+          markFilm = prompt("На скільки оціните фільм?", "");
+ 
+    if (lastFilm != null && markFilm != null && lastFilm != "" && markFilm != "" && lastFilm.length < 50) {
+        personalMovieDB.movies[lastFilm] = markFilm;
+        console.log("done");
+    } else { 
+        console.log("error");
+        i--;
+    }
+
+        
+   
+}
 
 console.log(personalMovieDB);
